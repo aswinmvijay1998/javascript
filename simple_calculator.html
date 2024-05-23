@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator</title>
+  <style type="text/css">
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #918de7;
+      margin: 0;
+    }
+    #container {
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      background-color: #fff;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    input, select {
+      width: calc(100% - 20px);
+      margin: 10px;
+      padding: 10px;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    #operator {
+      display: block;
+      padding: 5px;
+    }
+    #btn {
+      width: 50px;
+      margin: 15px auto;
+      display: block;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    #btn:hover {
+      background-color: #45a049;
+    }
+    #demo {
+      text-align: center;
+      padding-bottom: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h2>Calculator</h2>
+    <input type="text" id="num1" placeholder="Enter First Number">
+    <input type="text" id="num2" placeholder="Enter Second Number">
+    <select id="operator">
+      <option selected>Select</option>
+      <option value="add">+</option>
+      <option value="sub">-</option>
+      <option value="mul">*</option>
+      <option value="div">/</option>
+    </select>
+    <button onclick="calculate()" id="btn">=</button>
+    <p id="demo"></p>
+  </div>
+
+  <script type="text/javascript">
+    function add(num1, num2) {
+      return num1 + num2;
+    }
+
+    function sub(num1, num2) {
+      return num1 - num2;
+    }
+
+    function mul(num1, num2) {
+      return num1 * num2;
+    }
+
+    function div(num1, num2) {
+      return num1 / num2;
+    }
+
+    function calculate() {
+      var number1 = parseFloat(document.getElementById("num1").value);
+      var number2 = parseFloat(document.getElementById("num2").value);
+      var operator = document.getElementById("operator").value;
+      var result;
+
+      switch (operator) {
+        case "add":
+          result = add(number1, number2);
+          break;
+        case "sub":
+          result = sub(number1, number2);
+          break;
+        case "mul":
+          result = mul(number1, number2);
+          break;
+        case "div":
+          result = div(number1, number2);
+          break;
+        default:
+          result = "Please select an operator";
+      }
+      document.getElementById("demo").innerHTML = `Result is ${result}`;
+    }
+  </script>
+</body>
+</html>

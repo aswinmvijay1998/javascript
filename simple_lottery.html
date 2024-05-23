@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <title>Lottery winner</title>
+
+  <style type="text/css">
+    #container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 30px;
+    }
+    #demo1{
+      font-size: 25px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    #demo{
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .modal-body {
+      background-color: #ADD8E6; /* Light blue background */
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="container">
+  <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#lottery" onclick="winner()">
+    Winner
+  </button>
+  <p id="demo1"></p>
+</div>
+
+<div class="modal" id="lottery">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><b>Lottery Winner is:</b></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" id="demo">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function winner(){
+    var arr=[177856,188976,201234,198876,186756,177345,156743,165783,183456,166624,199237,203422,155489,198234,187638];
+    var result=arr[Math.floor(Math.random()*arr.length)];
+    document.getElementById("demo").innerHTML=result;
+    var x=document.getElementById("demo1");
+    x.style.color ="#FF0000";
+    x.innerHTML=result;
+    console.log(result);
+  }
+</script>
+
+</body>
+</html>
